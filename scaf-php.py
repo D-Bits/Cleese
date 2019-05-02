@@ -2,7 +2,9 @@
 # Directory and file structure to scaffold
 -src
  |__/admin
- |   |_index.php 
+ |   |_index.php
+ |   |_login.php
+ |   |_logout.php
  |__/css
  |   |_main.css
  |__/images
