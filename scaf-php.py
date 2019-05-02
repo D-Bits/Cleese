@@ -17,6 +17,7 @@
 from os import mkdir, chdir
 from subprocess import call
 
+
 # Create project's base directory
 def root():
 
