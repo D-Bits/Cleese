@@ -16,6 +16,7 @@ def init():
     chdir(proj_name)
 
     call('dotnet new mvc')
+    open('README.md', 'a')
 
 
 # Install NuGet packages

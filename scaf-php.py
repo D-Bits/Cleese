@@ -27,6 +27,7 @@ def root():
     mkdir(proj_name)
     chdir(proj_name) 
     open('index.php', 'a')
+    open('README.md', 'a')
     
 
 # Initialize a git repo, add and commit all files created

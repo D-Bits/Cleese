@@ -29,6 +29,7 @@ def create_project():
         raise Exception('Project name cannot be null!')
        
     chdir(proj_name) # Change into the project dir, created by Django admin   
+    open('README.md', 'a')
 
 """
 Initialize empty git repo, then add + commit all project files
