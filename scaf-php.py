@@ -43,6 +43,8 @@ def admin():
 
     mkdir('admin')
     open('admin/index.php', 'a')
+    open('admin/login.php', 'a')
+    open('admin/logout.php', 'a')
 
 
 # Create a directory for stylesheets, with a main.css
