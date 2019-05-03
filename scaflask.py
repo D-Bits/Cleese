@@ -26,6 +26,7 @@ but does not need to be pre-installed to run.
 from os import mkdir, chdir
 from subprocess import call
 
+
 # Create a virtualenv w/ pipenv, and install packages inside it
 def pipenv():
 
@@ -38,6 +39,7 @@ def pipenv():
     call('pipenv install flask-wtf')
     call('pipenv install flask-security')
     call('git init') # Initialize empty git repo
+
 
 # Create project package directory
 def create_pkg():
@@ -56,12 +58,14 @@ def create_pkg():
     open('routes.py', 'a')
     open('__init__.py', 'a')
 
+
 # Create templates directory
 def create_templates():
 
     mkdir('templates') 
     # Create a layout template in dir for other templates to inherit from
     open('templates/layout.html', 'a') 
+
 
 # Create static files directory    
 def create_static():
@@ -76,10 +80,19 @@ def create_static():
     # Create an images dir
     mkdir('static/img') 
 
+
 # Create directory for unit tests
 def create_tests():
 
     mkdir('tests')
+
+
+def git():
+
+    call('git init')
+    call('git add -A')
+    call('git commit -m "initial commit"')
+
 
 def main():
 
@@ -88,5 +101,7 @@ def main():
     create_templates()
     create_static()
     create_tests()
+    git()
+
 
 main()
