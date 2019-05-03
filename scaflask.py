@@ -38,7 +38,6 @@ def pipenv():
     call('pipenv install flask-sqlalchemy')
     call('pipenv install flask-wtf')
     call('pipenv install flask-security')
-    call('git init') # Initialize empty git repo
 
 
 # Create project package directory
