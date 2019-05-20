@@ -35,9 +35,9 @@ def pipenv():
     # Install pipenv, if it is not already installed
     call('pip install pipenv')
     call('pipenv install flask')
-    call('pipenv install flask-sqlalchemy')
-    call('pipenv install flask-wtf')
-    call('pipenv install flask-security')
+    # call('pipenv install flask-sqlalchemy')
+    # call('pipenv install flask-wtf')
+    # call('pipenv install flask-security')
 
 
 # Create project package directory
@@ -84,6 +84,8 @@ def create_static():
 def create_tests():
 
     mkdir('tests')
+    open('test/test_models.py')
+    open('test/test_routes.py')
 
 
 def git():
@@ -99,8 +101,8 @@ def main():
     create_pkg()
     create_templates()
     create_static()
-    create_tests()
-    git()
+    #create_tests()
+    #git()
 
 
 main()
