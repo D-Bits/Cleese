@@ -101,8 +101,8 @@ def main():
     create_pkg()
     create_templates()
     create_static()
-    #create_tests()
-    #git()
+    create_tests()
+    git()
 
 
 main()
