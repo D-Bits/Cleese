@@ -84,8 +84,8 @@ def create_static():
 def create_tests():
 
     mkdir('tests')
-    open('tests/test_models.py')
-    open('tests/test_routes.py')
+    open('tests/test_models.py', 'a')
+    open('tests/test_routes.py', 'a')
 
 
 def git():
@@ -97,8 +97,8 @@ def git():
 
 def main():
 
-    create_pkg()
     pipenv()
+    create_pkg()
     create_templates()
     create_static()
     create_tests()
