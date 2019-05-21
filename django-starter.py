@@ -29,6 +29,15 @@ def create_project():
         raise Exception('Project name cannot be null!')
        
     chdir(proj_name) # Change into the project dir, created by Django admin   
+    
+    """Create virtualenv w/ Pipenv, and install packages"""
+    # Make sure pip is up-to-date
+    call('python -m pip install --upgrade pip')
+    # Install pipenv, if it is not already installed
+    call('pip install pipenv')
+    call('pipenv install django')
+    call('pipenv install psycopg2')
+    
     open('README.md', 'a')
 
 """
@@ -53,7 +62,7 @@ def create_app():
 
 def main():
 
-    pipenv()
+    #pipenv()
     create_project()
     create_app()
     git()
