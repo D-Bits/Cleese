@@ -1,23 +1,15 @@
 """
 Create a Django project, in 
 a virtualenv with psycopg2 installed. 
+Run inside the project base dir.
 """
 from subprocess import call
-from os import chdir
+from os import chdir, mkdir
 
 
 """ Prompt the user for a project name, then
 Run the django-admin startproject cmd  """
-def create_project():
-    
-    proj_name = input("Enter a project name: ")
-    call('django-admin.exe startproject ' + proj_name)
-    
-    # Throw an exception is proj_name is null
-    if not proj_name:
-        raise Exception('Project name cannot be null!')
-       
-    chdir(proj_name) # Change into the project dir, created by Django admin   
+def start_project():
     
     """Create virtualenv w/ Pipenv, and install packages"""
     # Make sure pip is up-to-date
@@ -26,8 +18,16 @@ def create_project():
     call('pip install pipenv')
     call('pipenv install django')
     call('pipenv install psycopg2')
+    proj_name = input("Enter a project name: ")
+    call('django-admin.exe startproject ' + proj_name)
     
+    # Throw an exception is proj_name is null
+    if not proj_name:
+        raise Exception('Project name cannot be null!')
+       
+    chdir(proj_name) # Change into the project dir, created by Django admin   
     open('README.md', 'a')
+
 
 """
 Initialize empty git repo, then add + commit all project files
@@ -37,6 +37,7 @@ def git():
     call('git init')
     call('git add -A')
     call('git commit -m "initial commit" ')
+
 
 # Add an app to the project
 def create_app():
@@ -51,9 +52,9 @@ def create_app():
 
 def main():
 
-    create_project()
+    start_project()
     create_app()
     git()
-
+        
 
 main()
