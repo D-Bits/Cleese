@@ -1,8 +1,10 @@
 """
-Initialize an ASP.NET Core MVC application
+Initialize an ASP.NET Core MVC application. 
+Requires .NET Core SDK.
 """
 from os import mkdir, chdir
 from subprocess import call
+
 
 # Create proj dir and scaffold an ASP app
 def init():
@@ -22,6 +24,7 @@ def init():
 # Install NuGet packages
 def packages():
 
+    call('dotnet add package Microsoft.EntityFrameworkCore')
     call('dotnet add package Microsoft.EntityFrameworkCore.SqlServer')
 
 

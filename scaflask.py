@@ -27,6 +27,20 @@ from os import mkdir, chdir
 from subprocess import call
 
 
+# Create the parent dir for the project, and cd into it
+def project_root():
+
+    proj_name = input('Enter a project name: ')
+
+    if not proj_name:
+        raise Exception('Package name cannot be null!')
+
+    mkdir(proj_name)
+    chdir(proj_name)
+    open('app.py', 'a')
+    open('README.md', 'a')
+
+
 # Create a virtualenv w/ pipenv, and install packages inside it
 def pipenv():
 
@@ -35,9 +49,9 @@ def pipenv():
     # Install pipenv, if it is not already installed
     call('pip install pipenv')
     call('pipenv install flask')
-    # call('pipenv install flask-sqlalchemy')
-    # call('pipenv install flask-wtf')
-    # call('pipenv install flask-security')
+    call('pipenv install flask-sqlalchemy')
+    call('pipenv install flask-wtf')
+    call('pipenv install flask-security')
 
 
 # Create project package directory
@@ -50,8 +64,6 @@ def create_pkg():
         raise Exception('Package name cannot be null!')
 
     mkdir(pkg_name) 
-    open('app.py', 'a')
-    open('README.md', 'a')
     chdir(pkg_name) # Change into the package directory
     open('models.py', 'a')
     open('forms.py', 'a')
@@ -99,6 +111,7 @@ def git():
 
 def main():
 
+    project_root()
     pipenv()
     create_pkg()
     create_templates()
