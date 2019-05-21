@@ -6,17 +6,6 @@ from subprocess import call
 from os import chdir
 
 
-# Create the virtualenv, and install packages
-def pipenv():
-
-    # Make sure pip is up-to-date
-    call('python -m pip install --upgrade pip')
-    # Install pipenv, if it is not already installed
-    call('pip install pipenv')
-    call('pipenv install django')
-    call('pipenv install psycopg2')
-
-
 """ Prompt the user for a project name, then
 Run the django-admin startproject cmd  """
 def create_project():
@@ -62,7 +51,6 @@ def create_app():
 
 def main():
 
-    #pipenv()
     create_project()
     create_app()
     git()
