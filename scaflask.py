@@ -51,6 +51,7 @@ def create_pkg():
 
     mkdir(pkg_name) 
     open('app.py', 'a')
+    open('README.md', 'a')
     chdir(pkg_name) # Change into the package directory
     open('models.py', 'a')
     open('forms.py', 'a')
@@ -88,6 +89,7 @@ def create_tests():
     open('tests/test_routes.py', 'a')
 
 
+# Initialize git repo, add+commit files
 def git():
 
     call('git init')
