@@ -1,7 +1,7 @@
 """
 Create a Django project, in 
 a virtualenv with psycopg2 installed. 
-Run inside the project base dir.
+
 """
 from subprocess import call
 from os import chdir, mkdir
@@ -11,6 +11,15 @@ from os import chdir, mkdir
 Run the django-admin startproject cmd  """
 def start_project():
     
+    proj_name = input("Enter a project name: ")
+
+    # Throw an exception is proj_name is null
+    if not proj_name:
+        raise Exception('Project name cannot be null!')
+
+    mkdir(proj_name)
+    chdir(proj_name)
+
     """Create virtualenv w/ Pipenv, and install packages"""
     # Make sure pip is up-to-date
     call('python -m pip install --upgrade pip')
@@ -18,14 +27,8 @@ def start_project():
     call('pip install pipenv')
     call('pipenv install django')
     call('pipenv install psycopg2')
-    proj_name = input("Enter a project name: ")
     call('django-admin.exe startproject ' + proj_name)
     
-    # Throw an exception is proj_name is null
-    if not proj_name:
-        raise Exception('Project name cannot be null!')
-       
-    chdir(proj_name) # Change into the project dir, created by Django admin   
     open('README.md', 'a')
 
 
