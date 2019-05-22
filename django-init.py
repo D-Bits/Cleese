@@ -46,13 +46,14 @@ def git():
 def create_app():
 
     app_name = input("Enter a name for your first Django project app: ")
-    call('django-admin.exe startapp ' + app_name)
-
+    
     # Throw an exception is app_name is null
     if not app_name:
         raise Exception('App name cannot be null!')
 
+    call('django-admin.exe startapp ' + app_name)
 
+    
 def main():
 
     start_project()
