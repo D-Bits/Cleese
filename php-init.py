@@ -78,7 +78,7 @@ def js():
     open('js/main.js', 'a')
 
 
-def main():
+if __name__ == "__main__":
 
     root()
     admin()
@@ -87,6 +87,3 @@ def main():
     includes()
     js()
     git()
-
-
-main()

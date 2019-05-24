@@ -14,6 +14,7 @@ but does not need to be pre-installed to run.
 -package_name
  |__/templates
  |   |_layout.html
+ |__/models
  |__/static
  |   |__/css
  |   |   |_main.css
@@ -109,7 +110,7 @@ def git():
     call('git commit -m "initial commit"')
 
 
-def main():
+if __name__ == "__main__":
 
     project_root()
     pipenv()
@@ -120,4 +121,3 @@ def main():
     git()
 
 
-main()

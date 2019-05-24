@@ -1,7 +1,9 @@
 """
-Scaffold together a Node.js/Express Application
+CAUTION: Not yet working. 
+Scaffold together a Node.js/Express Application.
 """
-from os import mkdir, chdir
+from os import mkdir, chdir, environ
+from sys import stdout
 from subprocess import call
 
 
@@ -41,14 +43,25 @@ def routes():
     open('routes/index.js', 'a')
 
 
+# Create a dir for unit tests
+def tests():
+
+    mkdir('tests')
+    open('tests/model_tests.js', 'a')
+    open('tests/controller_tests.js', 'a')
+
+
 # Install packages from NPM
 def packages():
 
-    call('npm install handlebars')
-    call('npm install express')
-    call('npm install waterline')
-    call('npm install mocha')
-    call('npm init')
+    call(["npm"], stdout=stdout)
+    call(["where", "npm"], stdout=stdout)
+    call(["where", "npm"], shell=True, stdout=stdout)
+
+    call(['npm', 'install', 'handlebars'])
+    call(['npm', 'install', 'express'])
+    call(['npm', 'install', 'mocha'])
+    call(['npm', 'init'])
 
 
 # Initialize a git repo, commit & add all files created
@@ -62,11 +75,12 @@ def git():
 def main():
 
     create_root()
-    # packages()
+    packages()
     controllers()
     models()
     views()
     routes()
+    tests()
     git()
 
 

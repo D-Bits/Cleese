@@ -1,4 +1,5 @@
 """
+CAUTION: Not yet working. 
 Configure a Ruby on Rails dev environment, w/ support 
 for PostgreSQL.
 """
@@ -40,7 +41,7 @@ def project():
     if not proj_name:
         raise Exception('Project name cannot be null!')
 
-    call(f'rails new {proj_name} --database=postgresql')
+    call(['rails new'], [proj_name], ['--database=postgresql'])
     chdir(proj_name) 
 
 
@@ -54,7 +55,7 @@ def git():
 
 def main():
     
-    updates()
+    #updates()
     rbenv()
     gems()
     project()
