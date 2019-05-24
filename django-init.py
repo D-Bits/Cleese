@@ -6,6 +6,23 @@ a virtualenv with psycopg2 installed.
 from subprocess import call
 from os import chdir, mkdir
 
+def create_root():
+
+    dir_name = input("Enter a name for the project base dir: ")
+
+    mkdir(dir_name)
+    chdir(dir_name)
+
+    """Create virtualenv w/ Pipenv, and install packages"""
+    # Make sure pip is up-to-date
+    call('python -m pip install --upgrade pip')
+    # Install pipenv, if it is not already installed
+    call('pip install pipenv')
+    call('pipenv install django')
+    call('pipenv install psycopg2')
+
+    open('README.md', 'a')
+
 
 """ Prompt the user for a project name, then
 Run the django-admin startproject cmd  """
@@ -20,16 +37,9 @@ def start_project():
     mkdir(proj_name)
     chdir(proj_name)
 
-    """Create virtualenv w/ Pipenv, and install packages"""
-    # Make sure pip is up-to-date
-    call('python -m pip install --upgrade pip')
-    # Install pipenv, if it is not already installed
-    call('pip install pipenv')
-    call('pipenv install django')
-    call('pipenv install psycopg2')
     call('django-admin.exe startproject ' + proj_name)
     
-    open('README.md', 'a')
+    
 
 
 """
@@ -45,20 +55,19 @@ def git():
 # Add an app to the project
 def create_app():
 
-    app_name = input("Enter a name for your first Django project app: ")
+        app_name = input("Enter a name for your first Django project app: ")
+        
+        # Throw an exception is app_name is null
+        if not app_name:
+            raise Exception('App name cannot be null!')
+
+        call('django-admin.exe startapp ' + app_name)
+
     
-    # Throw an exception is app_name is null
-    if not app_name:
-        raise Exception('App name cannot be null!')
+if __name__ == "__main__":
 
-    call('django-admin.exe startapp ' + app_name)
-
-    
-def main():
-
+    create_root()
     start_project()
     create_app()
     git()
         
-
-main()

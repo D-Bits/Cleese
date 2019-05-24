@@ -35,11 +35,9 @@ def git():
     call('git commit -m "initial commit"')
 
 
-def main():
-
+if __name__ == "__main__":
+    
     init()
     packages()
     git()
 
-
-main()
