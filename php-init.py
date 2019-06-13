@@ -50,6 +50,21 @@ def admin():
     open('admin/logout.php', 'a')
 
 
+# Create a directory for static files (CSS, JS, Images)
+def static():
+
+    # Create CSS dir
+    mkdir('static')
+    mkdir('static/css')
+    open('static/css/main.css', 'a')
+
+    # Create images dir
+    mkdir('static/images')
+
+    # Create JS dir
+    mkdir('static/js')
+    open('static/js/main.js', 'a')
+
 # Create a directory for stylesheets, with a main.css
 def css():
 
@@ -82,8 +97,9 @@ if __name__ == "__main__":
 
     root()
     admin()
-    css()
-    images()
+    static()
+    #css()
+    #images()
     includes()
-    js()
-    git()
+    #js()
+    #git()
