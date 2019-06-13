@@ -2,16 +2,18 @@
 # Directory and file structure to scaffold
 -src
  |__/admin
- |   |_index.php
- |   |_login.php
- |   |_logout.php
- |__/css
- |   |_main.css
- |__/images
+ |  |_index.php
+ |  |_login.php
+ |  |_logout.php
  |__/includes
- |__/js
- |  |_main.js
- |
+ |  |_header.php
+ |  |_footer.php
+ |__/static
+ |  |_/css
+ |  | |_main.css
+ |  |_/images
+ |  |_/js
+ |    |_main.js
  |__index.php
 """
 from os import mkdir, chdir
@@ -65,18 +67,6 @@ def static():
     mkdir('static/js')
     open('static/js/main.js', 'a')
 
-# Create a directory for stylesheets, with a main.css
-def css():
-
-    mkdir('css')
-    open('css/main.css', 'a')
-
-
-# Create a directory for stylesheets, with a main.css
-def images():
-
-    mkdir('images')
-
 
 # Create a directory for includes, with a header, and footer include
 def includes():
@@ -86,20 +76,10 @@ def includes():
     open('includes/footer.php', 'a')
 
 
-# Create a directory for js files
-def js():
-
-    mkdir('js')
-    open('js/main.js', 'a')
-
-
 if __name__ == "__main__":
 
     root()
     admin()
-    static()
-    #css()
-    #images()
+    static() 
     includes()
-    #js()
-    #git()
+    git()
