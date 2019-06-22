@@ -1,10 +1,10 @@
 """
 Create a Django project, in 
 a virtualenv with psycopg2 installed. 
-
 """
 from subprocess import call
 from os import chdir, mkdir
+
 
 def create_root():
 
@@ -19,7 +19,11 @@ def create_root():
     # Install pipenv, if it is not already installed
     call('pip install pipenv')
     call('pipenv install django')
-    call('pipenv install psycopg2')
+    # Prompt the user to specify what DBMS they want to use
+    db_pkg = input('Specify a database connector (ex:"psycopg2, mysqlclient, etc"): ')
+    if not db_pkg:
+        raise Exception('Must specify a db connector!')
+    call(f'pipenv install {db_pkg}')
 
     open('README.md', 'a')
 
@@ -38,8 +42,6 @@ def start_project():
     chdir(proj_name)
 
     call('django-admin.exe startproject ' + proj_name)
-    
-    
 
 
 """
@@ -69,5 +71,5 @@ if __name__ == "__main__":
     create_root()
     start_project()
     create_app()
-    git()
+    #git()
         
