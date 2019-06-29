@@ -60,6 +60,7 @@ def create_pkg():
     
     # Prompt the user for a package name
     pkg_name = input('Enter a name for your Flask package: ')
+   
     # Throw an exception is package name is null
     if not pkg_name:
         raise Exception('Package name cannot be null!')
@@ -110,7 +111,7 @@ def git():
     call('git commit -m "initial commit"')
 
 
-if __name__ == "__main__":
+def flask_main():
 
     project_root()
     pipenv()

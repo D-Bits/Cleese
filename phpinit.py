@@ -76,7 +76,7 @@ def includes():
     open('includes/footer.php', 'a')
 
 
-if __name__ == "__main__":
+def php_main():
 
     root()
     admin()

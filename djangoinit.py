@@ -1,3 +1,4 @@
+
 """
 Create a Django project, in 
 a virtualenv with psycopg2 installed. 
@@ -19,6 +20,7 @@ def create_root():
     # Install pipenv, if it is not already installed
     call('pip install pipenv')
     call('pipenv install django')
+    call('pipenv install djangorestframework')
     # Prompt the user to specify what DBMS they want to use
     db_pkg = input('Specify a database connector (ex:"psycopg2, mysqlclient, etc"): ')
     if not db_pkg:
@@ -63,10 +65,10 @@ def create_app():
         if not app_name:
             raise Exception('App name cannot be null!')
 
-        call('django-admin.exe startapp ' + app_name)
+        call('django-admin.exe startapp' + app_name)
 
     
-if __name__ == "__main__":
+def django_main():
 
     create_root()
     start_project()

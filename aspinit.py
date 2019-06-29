@@ -35,9 +35,8 @@ def git():
     call('git commit -m "initial commit"')
 
 
-if __name__ == "__main__":
+def asp_main():
     
     init()
     packages()
     git()
-
