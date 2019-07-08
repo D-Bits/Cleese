@@ -2,13 +2,15 @@ from aspinit import asp_main
 from djangoinit import django_main
 from flaskinit import flask_main
 from phpinit import php_main
+from goinit import go_main
 
 # User choices for scaffolding
 choices = {
     '1': 'Django Project',
     '2': 'Flask Project',
     '3': 'ASP.NET Core MVC Project',
-    '4': 'PHP Project'
+    '4': 'PHP Project',
+    '5': 'A Golang Project'
 }
 
 
@@ -33,3 +35,7 @@ if __name__ == "__main__":
         asp_main()
     elif user_choice == 4:
         php_main()
+    elif user_choice == 5:
+        go_main()
+    else:
+        raise Exception('Invalid value.')
