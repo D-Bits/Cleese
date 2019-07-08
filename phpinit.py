@@ -21,13 +21,7 @@ from subprocess import call
 
 
 # Create project's base directory
-def root():
-
-    proj_name = input('Enter a project name: ')
-
-    # Throw exception if user does not enter project name when prompted
-    if proj_name is None:
-        raise Exception('Project name cannot be null!')
+def root(proj_name):
     
     mkdir(proj_name)
     chdir(proj_name) 
@@ -78,7 +72,13 @@ def includes():
 
 def php_main():
 
-    root()
+    user_proj_name = input('Enter a project name: ')
+
+    # Throw exception if user does not enter project name when prompted
+    if user_proj_name is None:
+        raise Exception('Project name cannot be null!')
+
+    root(user_proj_name)
     admin()
     static() 
     includes()
