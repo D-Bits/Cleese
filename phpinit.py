@@ -46,6 +46,14 @@ def admin():
     open('admin/logout.php', 'a')
 
 
+# Create directory for config files
+def config():
+
+    mkdir('config')
+    open('config/config.php')
+    open('config/db.php')
+
+
 # Create a directory for static files (CSS, JS, Images)
 def static():
 
@@ -80,6 +88,7 @@ def php_main():
 
     root(user_proj_name)
     admin()
+    config()
     static() 
     includes()
     git()
