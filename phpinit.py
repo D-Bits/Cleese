@@ -50,8 +50,8 @@ def admin():
 def config():
 
     mkdir('config')
-    open('config/config.php')
-    open('config/db.php')
+    open('config/config.php', 'a')
+    open('config/db.php', 'a')
 
 
 # Create a directory for static files (CSS, JS, Images)
