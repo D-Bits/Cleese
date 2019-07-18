@@ -4,6 +4,7 @@ from flaskinit import flask_main
 from phpinit import php_main
 from goinit import go_main
 
+
 # User choices for scaffolding
 choices = {
     '1': 'Django Project',
