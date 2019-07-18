@@ -22,7 +22,7 @@ def create_root():
     call('pipenv install django')
     call('pipenv install djangorestframework')
     # Prompt the user to specify what DBMS they want to use
-    db_pkg = input('Specify a database connector (ex:"psycopg2, mysqlclient, etc"): ')
+    db_pkg = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
     if not db_pkg:
         raise Exception('Must specify a db connector!')
     call(f'pipenv install {db_pkg}')
@@ -45,6 +45,8 @@ def start_project():
 
     call('django-admin.exe startproject ' + proj_name)
 
+    chdir(proj_name)
+
 
 """
 Initialize empty git repo, then add + commit all project files
@@ -60,12 +62,12 @@ def git():
 def create_app():
 
         app_name = input("Enter a name for your first Django project app: ")
-        
+
         # Throw an exception is app_name is null
         if not app_name:
             raise Exception('App name cannot be null!')
 
-        call('django-admin.exe startapp' + app_name)
+        call('django-admin.exe startapp ' + app_name)
 
     
 def django_main():
