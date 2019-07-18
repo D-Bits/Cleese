@@ -1,4 +1,3 @@
-
 """
 Create a Django project, in 
 a virtualenv with psycopg2 installed. 
