@@ -3,6 +3,7 @@ from djangoinit import django_main
 from flaskinit import flask_main
 from phpinit import php_main
 from goinit import go_main
+from generic_python_init import generic_py_main
 
 
 # User choices for scaffolding
@@ -11,7 +12,8 @@ choices = {
     '2': 'Flask Project',
     '3': '.NET Core Project',
     '4': 'PHP Project',
-    '5': 'A Golang Project'
+    '5': 'A Golang Project',
+    '6': 'A generic Python project.'
 }
 
 
@@ -38,5 +40,7 @@ if __name__ == "__main__":
         php_main()
     elif user_choice == 5:
         go_main()
+    elif user_choice == 6:
+        generic_py_main()
     else:
         raise Exception('Invalid value.')
