@@ -9,7 +9,7 @@ from goinit import go_main
 choices = {
     '1': 'Django Project',
     '2': 'Flask Project',
-    '3': 'ASP.NET Core MVC Project',
+    '3': '.NET Core Project',
     '4': 'PHP Project',
     '5': 'A Golang Project'
 }
