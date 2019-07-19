@@ -1,7 +1,7 @@
-"""
-Create a Django project, in 
-a virtualenv with psycopg2 installed. 
-"""
+
+""" Create a Django project, in 
+a virtualenv with psycopg2 installed. """ 
+
 from subprocess import call
 from os import chdir, mkdir
 
@@ -42,7 +42,7 @@ def start_project():
     mkdir(proj_name)
     chdir(proj_name)
 
-    call('django-admin.exe startproject', proj_name)
+    call('django-admin.exe startproject ' + proj_name)
 
     chdir(proj_name)
 
@@ -66,7 +66,7 @@ def create_app():
         if not app_name:
             raise Exception('App name cannot be null!')
 
-        call('django-admin.exe startapp', app_name)
+        call('django-admin.exe startapp ' + app_name)
 
     
 def django_main():
