@@ -9,6 +9,14 @@ from subprocess import call
 # Create proj dir and scaffold an ASP app
 def init():
 
+    choices = {
+        '1': 'MVC',
+        '2': 'Web API',
+        '3': 'Console Program',
+        '4': 'ASP, with React',
+        '5': 'ASP, with React and Redux',
+    }
+
     proj_name = input('Enter a project name: ')
 
     if not proj_name:
@@ -17,7 +25,25 @@ def init():
     mkdir(proj_name)
     chdir(proj_name)
 
-    call('dotnet new mvc')
+    for key, val in choices.items():
+        
+        print(key, val)
+
+    proj_type = int(input('Enter a number, based on the above options: '))
+
+    if proj_type == 1:
+        call('dotnet new mvc')
+    elif proj_type == 2:
+        call('dotnet new webapi')
+    elif proj_type == 3:
+        call('dotnet new console')
+    elif proj_type == 4:
+        call('dotnet new react')
+    elif proj_type == 5:
+        call('dotnet new reactredux')
+    else:
+        raise Exception('Invalid value!')
+    
     open('README.md', 'a')
 
 
