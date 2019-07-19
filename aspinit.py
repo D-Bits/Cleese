@@ -25,10 +25,12 @@ def init():
     mkdir(proj_name)
     chdir(proj_name)
 
+    # Show the user available choices
     for key, val in choices.items():
         
         print(key, val)
 
+    # Prompt the user to choose a .NET Core project type
     proj_type = int(input('Enter a number, based on the above options: '))
 
     if proj_type == 1:
@@ -54,6 +56,7 @@ def packages():
     call('dotnet add package Microsoft.EntityFrameworkCore.SqlServer')
 
 
+# Initialize a git repo, add, and commit files
 def git():
 
     call('git init')
