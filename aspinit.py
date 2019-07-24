@@ -1,5 +1,5 @@
 """
-Initialize an ASP.NET Core MVC application. 
+Initialize an ASP.NET Core application. 
 Requires .NET Core SDK.
 """
 from os import mkdir, chdir
@@ -29,6 +29,8 @@ def init():
     for key, val in choices.items():
         
         print(key, val)
+
+    print()
 
     # Prompt the user to choose a .NET Core project type
     proj_type = int(input('Enter a number, based on the above options: '))
