@@ -1,4 +1,3 @@
-
 """ Create a Django project, in 
 a virtualenv with psycopg2 installed. """ 
 
@@ -52,6 +51,7 @@ Initialize empty git repo, then add + commit all project files
 """
 def git():
 
+    chdir('..')
     call('git init')
     call('git add -A')
     call('git commit -m "initial commit" ')
@@ -74,5 +74,5 @@ def django_main():
     create_root()
     start_project()
     create_app()
-    #git()
+    git()
         
