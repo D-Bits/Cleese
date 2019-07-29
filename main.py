@@ -1,10 +1,11 @@
 from os import chdir
-from aspinit import asp_main
+from dotnetinit import dotnet_main
 from djangoinit import django_main
 from flaskinit import flask_main
 from phpinit import php_main
 from goinit import go_main
 from generic_python_init import generic_py_main
+from nodeexpressinit import node_main
 
 
 # User choices for scaffolding
@@ -14,7 +15,8 @@ choices = {
     '3': '.NET Core Project',
     '4': 'PHP Project',
     '5': 'A Golang Project',
-    '6': 'A generic Python project.'
+    '6': 'A generic Python Project.',
+    '7': 'A Node/Express Project.'
 }
 
 
@@ -39,12 +41,14 @@ if __name__ == "__main__":
     elif user_choice == 2:
         flask_main()
     elif user_choice == 3: 
-        asp_main()
+        dotnet_main()
     elif user_choice == 4:
         php_main()
     elif user_choice == 5:
         go_main()
     elif user_choice == 6:
         generic_py_main()
+    elif user_choice == 7:
+        node_main()
     else:
         raise Exception('Invalid value.')

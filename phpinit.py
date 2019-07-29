@@ -32,9 +32,9 @@ def root(proj_name):
 # Initialize a git repo, add and commit all files created
 def git():
 
-    call('git init')
-    call('git add -A')
-    call('git commit -m "Initial commit"')
+    call(['git', 'init'])
+    call(['git', 'add', '-A'])
+    call(['git', 'commit', '-m', 'Initial commit'])
 
 
 # Create the admin dir, with an index file

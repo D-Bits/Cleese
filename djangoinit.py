@@ -58,6 +58,7 @@ Initialize empty git repo, then add + commit all project files
 def git():
 
     chdir('..')
+    chdir('..')
     call(['git', 'init'])
     call(['git', 'add', '-A'])
     call(['git', 'commit', '-m', 'initial commit'])

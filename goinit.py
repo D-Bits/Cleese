@@ -5,7 +5,6 @@ from os import mkdir, chdir, getenv
 from subprocess import call
 
 
-
 def project_dirs(proj_name):
 
     go_path = getenv('GOPATH')

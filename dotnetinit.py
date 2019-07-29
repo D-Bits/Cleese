@@ -36,15 +36,15 @@ def init():
     proj_type = int(input('Enter a number, based on the above options: '))
 
     if proj_type == 1:
-        call('dotnet new mvc')
+        call(['dotnet', 'new', 'mvc'])
     elif proj_type == 2:
-        call('dotnet new webapi')
+        call(['dotnet', 'new', 'webapi'])
     elif proj_type == 3:
-        call('dotnet new console')
+        call(['dotnet', 'new', 'console'])
     elif proj_type == 4:
-        call('dotnet new react')
+        call(['dotnet', 'new', 'react'])
     elif proj_type == 5:
-        call('dotnet new reactredux')
+        call(['dotnet', 'new', 'reactredux'])
     else:
         raise Exception('Invalid value!')
     
@@ -54,19 +54,19 @@ def init():
 # Install NuGet packages
 def packages():
 
-    call('dotnet add package Microsoft.EntityFrameworkCore')
-    call('dotnet add package Microsoft.EntityFrameworkCore.SqlServer')
+    call(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore'])
+    call(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore.SqlServer'])
 
 
 # Initialize a git repo, add, and commit files
 def git():
 
-    call('git init')
-    call('git add -A')
-    call('git commit -m "initial commit"')
+    call(['git', 'init'])
+    call(['git', 'add', '-A'])
+    call(['git', 'commit', '-m', 'initial commit'])
 
 
-def asp_main():
+def dotnet_main():
     
     init()
     packages()
