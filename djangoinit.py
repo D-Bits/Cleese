@@ -73,7 +73,7 @@ def create_app():
         if not app_name:
             raise Exception('App name cannot be null!')
 
-        call(['django-admin', 'startapp', 'app_name'])
+        call(['django-admin', 'startapp', app_name])
 
     
 def django_main():
