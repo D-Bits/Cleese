@@ -1,3 +1,4 @@
+from os import chdir
 from aspinit import asp_main
 from djangoinit import django_main
 from flaskinit import flask_main
@@ -20,6 +21,9 @@ choices = {
 # Prompt the user to choice a project type to scaffold
 if __name__ == "__main__":
     
+    dir_path = input('Enter the path of the directory where you store your projects (Ex: /home/documents/projects): ')
+    chdir(dir_path)
+
     print() # Blank line for readability
 
     for key, val in choices.items():
