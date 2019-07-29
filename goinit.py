@@ -1,12 +1,19 @@
 """
 Initialize a basic Golang project.
 """
-from os import mkdir, chdir
+from os import mkdir, chdir, getenv
 from subprocess import call
 
 
 
 def project_dirs(proj_name):
+
+    go_path = getenv('GOPATH')
+    chdir(go_path)
+    chdir('src')
+    chdir('github.com')
+    github_uname = input('Please enter your GitHub username: ')
+    chdir(github_uname)
 
     # Create project base dir
     mkdir(proj_name)
