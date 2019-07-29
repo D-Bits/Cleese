@@ -4,7 +4,7 @@ Scripts to initialize different kinds of projects, with specific configurations.
 
 ## File Guide 
 
-* 'aspinit.py': For .NET Core projects.
+* 'dotnetinit.py': For .NET Core projects.
 * 'djangoinit.py': For Django projects.
 * 'lampconfig.py': Installs Apache2, MySQL, and PHP on a Linux machine.
 * 'phpinit.py': Scaffolds a PHP website.
