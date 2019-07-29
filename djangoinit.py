@@ -11,16 +11,25 @@ def create_root():
 
     """Create virtualenv w/ Pipenv, and install packages"""
     # Make sure pip is up-to-date
-    call('python -m pip install --upgrade pip')
+    call(['python', '-m', 'pip', 'install', '--upgrade pip'])
     # Install pipenv, if it is not already installed
-    call('pip install pipenv')
-    call('pipenv install django')
-    call('pipenv install djangorestframework')
+    call(['pip', 'install', 'pipenv'])
+    call(['pipenv', 'install', 'django'])
+
+    # Ask the user if they also want to install DRF
+    drf = input('Would you also like to install Django REST Framework (y/n)?: ')
+    if drf == 'y':
+        call(['pipenv', 'install', 'djangorestframework'])
+    elif drf == 'n':
+        pass
+    else:
+        raise Exception('Invalid value entered.')
+    
     # Prompt the user to specify what DBMS they want to use
     db_pkg = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
     if not db_pkg:
         raise Exception('Must specify a db connector!')
-    call(f'pipenv install {db_pkg}')
+    call(['pipenv', 'install', db_pkg])
 
     open('README.md', 'a')
 
@@ -38,7 +47,7 @@ def start_project():
     mkdir(proj_name)
     chdir(proj_name)
 
-    call('django-admin.exe startproject ' + proj_name)
+    call(['django-admin', 'startproject', proj_name])
 
     chdir(proj_name)
 
@@ -49,9 +58,9 @@ Initialize empty git repo, then add + commit all project files
 def git():
 
     chdir('..')
-    call('git init')
-    call('git add -A')
-    call('git commit -m "initial commit" ')
+    call(['git', 'init'])
+    call(['git', 'add', '-A'])
+    call(['git', 'commit', '-m', 'initial commit'])
 
 
 # Add an app to the project
@@ -63,7 +72,7 @@ def create_app():
         if not app_name:
             raise Exception('App name cannot be null!')
 
-        call('django-admin.exe startapp ' + app_name)
+        call(['django-admin', 'startapp', 'app_name'])
 
     
 def django_main():
