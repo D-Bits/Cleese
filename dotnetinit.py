@@ -1,5 +1,5 @@
 """
-Initialize an ASP.NET Core application. 
+Initialize an .NET Core application. 
 Requires .NET Core SDK.
 """
 from os import mkdir, chdir

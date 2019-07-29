@@ -6,17 +6,19 @@ from phpinit import php_main
 from goinit import go_main
 from generic_python_init import generic_py_main
 from nodeexpressinit import node_main
+from staticsite import static_main
 
 
 # User choices for scaffolding
 choices = {
-    '1': 'Django Project',
-    '2': 'Flask Project',
-    '3': '.NET Core Project',
-    '4': 'PHP Project',
-    '5': 'A Golang Project',
-    '6': 'A generic Python Project.',
-    '7': 'A Node/Express Project.'
+    '1.': 'Django project',
+    '2.': 'Flask project',
+    '3.': '.NET Core project',
+    '4.': 'PHP project',
+    '5.': 'A Golang project',
+    '6.': 'A generic Python project.',
+    '7.': 'A Node/Express project.',
+    '8.': 'A simple, static website.',
 }
 
 
@@ -50,5 +52,7 @@ if __name__ == "__main__":
         generic_py_main()
     elif user_choice == 7:
         node_main()
+    elif user_choice == 8:
+        static_main()
     else:
         raise Exception('Invalid value.')

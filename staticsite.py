@@ -11,3 +11,52 @@
  |__index.html
  |__README.md
 """
+from os import mkdir, chdir
+from subprocess import call
+
+
+# Create project base directory
+def base_dir(dir_name):
+
+    mkdir(dir_name)
+    chdir(dir_name)
+    open('index.html', 'a')
+    open('README.md', 'a')
+
+# Create a dir for CSS files
+def css():
+
+    mkdir('css')
+    open('css/main.css', 'a')
+
+
+# Create a dir for images
+def img():
+
+    mkdir('img')
+
+
+# Create a file for JS files
+def js():
+
+    mkdir('js')
+    open('js/main.js', 'a')
+
+
+# Initialize a git repo, commit & add all files created
+def git():
+
+    call(['git', 'init'])
+    call(['git', 'add', '-A'])
+    call(['git', 'commit', '-m', '"initial commit"'])
+
+
+def static_main():
+
+    proj_dir = input('Enter a name for your website: ')
+    
+    base_dir(proj_dir)
+    css()
+    img()
+    js()
+    git()
