@@ -54,6 +54,12 @@ def pipenv():
     call('pipenv install flask-wtf')
     call('pipenv install flask-security')
 
+    # Prompt the user to specify what DBMS they want to use
+    db_pkg = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
+    if not db_pkg:
+        raise Exception('Must specify a db connector!')
+    call(['pipenv', 'install', db_pkg])
+
 
 # Create project package directory
 def create_pkg():
