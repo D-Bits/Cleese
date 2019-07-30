@@ -49,13 +49,13 @@ def project_root():
 def pipenv():
 
     # Make sure pip is up-to-date
-    call('python -m pip install --upgrade pip')
+    call(['python', '-m', 'pip', 'install', '--upgrade pip'])
     # Install pipenv, if it is not already installed
-    call('pip install pipenv')
-    call('pipenv install flask')
-    call('pipenv install flask-sqlalchemy')
-    call('pipenv install flask-wtf')
-    call('pipenv install flask-security')
+    call(['pip', 'install', 'pipenv'])
+    call(['pipenv', 'install', 'flask'])
+    call(['pipenv', 'install', 'flask-sqlalchemy'])
+    call(['pipenv', 'install', 'flask-wtf'])
+    call(['pipenv', 'install', 'flask-security'])
 
     # Prompt the user to specify what DBMS they want to use
     db_pkg = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
@@ -115,9 +115,9 @@ def create_tests():
 # Initialize git repo, add+commit files
 def git():
 
-    call('git init')
-    call('git add -A')
-    call('git commit -m "initial commit"')
+    call(['git', 'init'])
+    call(['git', 'add', '-A'])
+    call(['git', 'commit', '-m', '"initial commit"'])
 
 
 def flask_main():
