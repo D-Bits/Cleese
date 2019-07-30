@@ -42,7 +42,7 @@ def project_root():
     open('README.md', 'a')
 
     # Export a local environment var, so 'flask run' can be used
-    call(['export', 'FLASK_APP=application.py'])
+    call(['export', 'FLASK_APP=app.py'])
 
 
 # Create a virtualenv w/ pipenv, and install packages inside it
