@@ -13,7 +13,7 @@ Scripts to initialize different kinds of projects, with specific configurations.
 
 ## Execution
 
-Run the *scaffold_main.exe* (Windows), or *scaffold_main* (Ubuntu/Linux) file(s) from the *dist* directory in a local directory of your choosing. Sorry, I do not have a Mac, and therefore, no executable for MacOS.
+Run the *scaffold_main.exe* (Windows), or *scaffold_main* (Ubuntu/Linux) file(s) from the *dist* directory in a local directory of your choosing. Sorry, I do not have a Mac, and therefore, no executable for MacOS. However, others are welcome to contribute an OSX executable, if they like. Until then, Mac users can CD into the repo, and run *main.py*. 
 
 ## Execuatable Checksums:
 
