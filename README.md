@@ -9,7 +9,9 @@ Scripts to initialize different kinds of projects, with specific configurations.
 * 'lampconfig.py': Installs Apache2, MySQL, and PHP on a Linux machine.
 * 'phpinit.py': Scaffolds a PHP website.
 * 'flaskinit.py': Scaffolds a Flask application.
-* 'goinit.py': Scaffold a Golang project (work in progress)
+* 'goinit.py': Scaffold a Golang project (work in progress).
+* 'expressinit.py': Scaffold a Node/Express.js webiste (not yet working).
+* 'gomvc.py': Scaffold a Golang MVC web project.
 
 ## Execution
 
