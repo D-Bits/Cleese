@@ -54,10 +54,6 @@ def tests():
 # Install packages from NPM
 def packages():
 
-    call(["npm"], stdout=stdout)
-    call(["where", "npm"], stdout=stdout)
-    call(["where", "npm"], shell=True, stdout=stdout)
-
     call(['npm', 'install', 'handlebars'])
     call(['npm', 'install', 'express'])
     call(['npm', 'install', 'mocha'])
@@ -67,12 +63,12 @@ def packages():
 # Initialize a git repo, commit & add all files created
 def git():
 
-    call('git init')
-    call('git add -A')
-    call('git commit -m "initial commit"')
+    call(['git', 'init'])
+    call(['git', 'add', '-A'])
+    call(['git', 'commit', '-m', '"initial commit"'])
 
 
-def main():
+def node_main():
 
     create_root()
     packages()
@@ -82,6 +78,3 @@ def main():
     routes()
     tests()
     git()
-
-
-main()
