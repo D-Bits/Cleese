@@ -8,6 +8,7 @@ from goinit import go_main
 from generic_python_init import generic_py_main
 from nodeexpressinit import node_main
 from staticsite import static_main
+from gomvc import go_mvc_main
 
 
 # User choices for scaffolding
@@ -16,10 +17,11 @@ choices = {
     '2.': 'Flask project',
     '3.': '.NET Core project',
     '4.': 'PHP project',
-    '5.': 'A Golang project',
-    '6.': 'A generic Python project.',
-    '7.': 'A Node/Express project.',
-    '8.': 'A simple, static website.',
+    '5.': 'Golang project',
+    '6.': 'Generic Python project.',
+    '7.': 'Node/Express project.',
+    '8.': 'Simple, static website.',
+    '9.': 'Golang MVC web project.'
 }
 
 
@@ -55,5 +57,7 @@ if __name__ == "__main__":
         node_main()
     elif user_choice == 8:
         static_main()
+    elif user_choice == 9:
+        go_mvc_main()
     else:
         raise Exception('Invalid value.')
