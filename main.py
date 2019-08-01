@@ -6,7 +6,6 @@ from flaskinit import flask_main
 from phpinit import php_main
 from goinit import go_main
 from generic_python_init import generic_py_main
-from nodeexpressinit import node_main
 from staticsite import static_main
 from gomvc import go_mvc_main
 
@@ -19,9 +18,8 @@ choices = {
     '4.': 'PHP project',
     '5.': 'Golang project',
     '6.': 'Generic Python project.',
-    '7.': 'Node/Express project.',
-    '8.': 'Simple, static website.',
-    '9.': 'Golang MVC web project.'
+    '7.': 'Simple, static website.',
+    '8.': 'Golang MVC web project.'
 }
 
 
@@ -54,10 +52,8 @@ if __name__ == "__main__":
     elif user_choice == 6:
         generic_py_main()
     elif user_choice == 7:
-        node_main()
-    elif user_choice == 8:
         static_main()
-    elif user_choice == 9:
+    elif user_choice == 8:
         go_mvc_main()
     else:
         raise Exception('Invalid value.')
