@@ -39,6 +39,8 @@ def init():
         call(['dotnet', 'new', 'mvc'])
     elif proj_type == 2:
         call(['dotnet', 'new', 'webapi'])
+        # Create a models dir for webapi
+        mkdir('models')
     elif proj_type == 3:
         call(['dotnet', 'new', 'console'])
     elif proj_type == 4:

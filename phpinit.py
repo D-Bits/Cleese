@@ -25,6 +25,7 @@ def root(proj_name):
     
     mkdir(proj_name)
     chdir(proj_name) 
+
     open('index.php', 'a')
     open('README.md', 'a')
     
