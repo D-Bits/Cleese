@@ -30,7 +30,7 @@ def src():
 
     mkdir('main')
     chdir('main')
-    open('app.go', 'a')
+    open('main.go', 'a')
 
 
 def go_main():
