@@ -57,3 +57,6 @@ if __name__ == "__main__":
         go_mvc_main()
     else:
         raise Exception('Invalid value.')
+
+    print()
+    input('Scaffolding complete. Press any key to exit.')
