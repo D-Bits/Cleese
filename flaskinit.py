@@ -41,8 +41,8 @@ def project_root():
     open('app.py', 'a')
     open('README.md', 'a')
 
-    # Export a local environment var, so 'flask run' can be used
-    call(['export', 'FLASK_APP=app.py'])
+    # Export a local environment var, so 'flask run' can be used (not yet working)
+    #call(['export', 'FLASK_APP=app.py'])
 
 
 # Create a virtualenv w/ pipenv, and install packages inside it
@@ -88,6 +88,7 @@ def create_templates():
     mkdir('templates') 
     # Create a layout template in dir for other templates to inherit from
     open('templates/layout.html', 'a') 
+    open('templates/index.html', 'a') 
 
 
 # Create static files directory    
