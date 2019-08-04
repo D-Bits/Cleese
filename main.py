@@ -59,4 +59,4 @@ if __name__ == "__main__":
         raise Exception('Invalid value.')
 
     print()
-    input('Scaffolding complete. Press any key to exit.')
+    input('Scaffolding complete. Press enter to exit.')
