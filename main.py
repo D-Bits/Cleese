@@ -26,7 +26,7 @@ choices = {
 # Prompt the user to choice a project type to scaffold
 if __name__ == "__main__":
     
-    dir_path = input('Enter the path of the directory where you store your projects (Ex: /home/documents/projects): ')
+    dir_path = input('Enter the path of the directory where you want to store your project(s) (Ex: /home/documents/projects): ')
     chdir(dir_path)
 
     print() # Blank line for readability
