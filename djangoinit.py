@@ -63,6 +63,17 @@ def git():
     call(['git', 'add', '-A'])
     call(['git', 'commit', '-m', 'initial commit'])
 
+    # Ask the user if they want to do a 'git remote' configuration
+    git_remote = input('Would you also like to do a git remote configuration(y/n)?: ')
+
+    if git_remote == "y":
+        remote_url = input('Enter the URL of your remote repository: ')
+        call(['git', 'remote', 'add', 'origin', remote_url])
+    elif git_remote == "n":
+        pass
+    else:
+        input("Invalid value entered. Press enter to exit.")
+
 
 # Add an app to the project
 def create_app():

@@ -78,3 +78,5 @@ def node_main():
     routes()
     tests()
     git()
+
+node_main()
