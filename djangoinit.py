@@ -33,6 +33,9 @@ def create_root():
 
     open('README.md', 'a')
 
+    # Add a "tasks.py" file to the base dir to automate execute of manage.py tasks
+    open('tasks.py', 'a')
+
 
 """ Prompt the user for a project name, then
 Run the django-admin startproject cmd  """
