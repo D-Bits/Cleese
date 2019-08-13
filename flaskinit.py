@@ -40,6 +40,8 @@ def project_root():
     chdir(proj_name)
     open('app.py', 'a')
     open('README.md', 'a')
+    # Create a file to automate flask tasks
+    open('tasks.py', 'a')
 
     # Export a local environment var, so 'flask run' can be used (not yet working)
     #call(['export', 'FLASK_APP=app.py'])
@@ -56,6 +58,7 @@ def pipenv():
     call(['pipenv', 'install', 'flask-sqlalchemy'])
     call(['pipenv', 'install', 'flask-wtf'])
     call(['pipenv', 'install', 'flask-security'])
+    call(['pipenv', 'install', 'flask-alembic'])
 
     # Prompt the user to specify what DBMS they want to use
     db_pkg = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
@@ -116,6 +119,7 @@ def create_tests():
 # Initialize git repo, add+commit files
 def git():
 
+    chdir('..')
     call(['git', 'init'])
     call(['git', 'add', '-A'])
     call(['git', 'commit', '-m', '"initial commit"'])
