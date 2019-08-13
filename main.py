@@ -13,14 +13,14 @@ from gomvc import go_mvc_main
 
 # User choices for scaffolding
 choices = {
-    '1.': 'Django project',
-    '2.': 'Flask project',
-    '3.': '.NET Core project',
-    '4.': 'PHP project',
-    '5.': 'Golang project',
-    '6.': 'Generic Python project.',
-    '7.': 'Simple, static website.',
-    '8.': 'Golang MVC web project.'
+    1: 'Django project',
+    2: 'Flask project',
+    3: '.NET Core project',
+    4: 'PHP project',
+    5: 'Golang project',
+    6: 'Generic Python project.',
+    7: 'Simple, static website.',
+    8: 'Golang MVC web project.'
 }
 
 

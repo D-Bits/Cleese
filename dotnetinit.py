@@ -40,7 +40,7 @@ def init():
     elif proj_type == 2:
         call(['dotnet', 'new', 'webapi'])
         # Create a models dir for webapi
-        mkdir('models')
+        mkdir('Models')
     elif proj_type == 3:
         call(['dotnet', 'new', 'console'])
     elif proj_type == 4:
@@ -51,14 +51,17 @@ def init():
         raise Exception('Invalid value!')
     
     open('README.md', 'a')
+    # Add a file for automating .NET Core & EF Core tasks
+    open('README.md', 'a')
 
 
 # Install NuGet packages
 def packages():
 
     call(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore'])
-    call(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore.SqlServer'])
-
+    call(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore.Design'])
+    # call(['dotnet', 'tool', 'install', '--global dotnet-ef'])
+    
 
 # Initialize a git repo, add, and commit files
 def git():
