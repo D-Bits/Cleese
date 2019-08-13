@@ -9,8 +9,8 @@ from shutil import move
 # Run cmds to compile for both Windows & Linux
 def compile():
 
-    call(['pyinstaller', 'main.py', '-F'])
-    call(['bash', 'pyinstaller', 'main.py', '-F'])
+    call(['pyinstaller', 'main.py', '-F', '-n', 'scaffold_projects'])
+    call(['wsl', 'pyinstaller', 'main.py', '-F', '-n', 'scaffold_projects'])
 
 
 # Move all executables to a specific dir after being created
