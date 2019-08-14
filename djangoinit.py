@@ -89,6 +89,18 @@ def create_app():
 
         call(['django-admin', 'startapp', app_name])
 
+        # Change into the app dir, and create a "tests" dir for unit testing
+        chdir(app_name)
+
+        mkdir('tests')
+        open('tests/__init__.py', 'a')
+        open('tests/test_models.py', 'a')
+        open('tests/test_views.py', 'a')
+        open('tests/test_forms.py', 'a')
+
+        # Change back into app dir
+        chdir('..')
+
     
 def django_main():
 
