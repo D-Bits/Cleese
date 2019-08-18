@@ -3,7 +3,7 @@ Initialize an .NET Core application.
 Requires .NET Core SDK.
 """
 from os import mkdir, chdir
-from subprocess import call
+from subprocess import run
 
 
 # Create proj dir and scaffold an ASP app
@@ -36,17 +36,22 @@ def init():
     proj_type = int(input('Enter a number, based on the above options: '))
 
     if proj_type == 1:
-        call(['dotnet', 'new', 'mvc'])
+        mvc = run(['dotnet', 'new', 'mvc'])
+        mvc.check_returncode()
     elif proj_type == 2:
-        call(['dotnet', 'new', 'webapi'])
+        web_api = run(['dotnet', 'new', 'webapi'])
+        web_api.check_returncode()
         # Create a models dir for webapi
         mkdir('Models')
     elif proj_type == 3:
-        call(['dotnet', 'new', 'console'])
+        console = run(['dotnet', 'new', 'console'])
+        console.check_returncode()
     elif proj_type == 4:
-        call(['dotnet', 'new', 'react'])
+        react = run(['dotnet', 'new', 'react'])
+        react.check_returncode()
     elif proj_type == 5:
-        call(['dotnet', 'new', 'reactredux'])
+        react_redux = run(['dotnet', 'new', 'reactredux'])
+        react_redux.check_returncode()
     else:
         raise Exception('Invalid value!')
     
@@ -58,25 +63,33 @@ def init():
 # Install NuGet packages
 def packages():
 
-    call(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore'])
-    call(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore.Design'])
-    # call(['dotnet', 'tool', 'install', '--global dotnet-ef'])
+    ef_core = run(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore'])
+    ef_core.check_returncode()
+
+    ef_core_design = run(['dotnet', 'add', 'package', 'Microsoft.EntityFrameworkCore.Design'])
+    ef_core_design.check_returncode()
     
 
 # Initialize a git repo, add, and commit files
 def git():
 
-    call(['git', 'init'])
-    call(['git', 'add', '-A'])
-    call(['git', 'commit', '-m', 'initial commit'])
+    git_init = run(['git', 'init'])
+    git_init.check_returncode()
+
+    git_add = run(['git', 'add', '-A'])
+    git_add.check_returncode()
+
+    git_commit = run(['git', 'commit', '-m', 'initial commit'])
+    git_commit.check_returncode()
 
     # Ask the user if they want to do a 'git remote' configuration
-    git_remote = input('Would you also like to do a git remote configuration(y/n)?: ')
+    git_remote_choice = input('Would you also like to do a git remote configuration(y/n)?: ')
 
-    if git_remote == "y":
+    if git_remote_choice == "y":
         remote_url = input('Enter the URL of your remote repository: ')
-        call(['git', 'remote', 'add', 'origin', remote_url])
-    elif git_remote == "n":
+        git_remote = run(['git', 'remote', 'add', 'origin', remote_url])
+        git_remote.check_returncode()
+    elif git_remote_choice == "n":
         pass
     else:
         input("Invalid value entered. Press enter to exit.")

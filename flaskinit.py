@@ -25,7 +25,7 @@ but does not need to be pre-installed to run.
  |__app.py
 """
 from os import mkdir, chdir
-from subprocess import call
+from subprocess import run
 
 
 # Create the parent dir for the project, and cd into it
@@ -50,21 +50,33 @@ def project_root():
 # Create a virtualenv w/ pipenv, and install packages inside it
 def pipenv():
 
-    # Make sure pip is up-to-date
-    call(['python', '-m', 'pip', 'install', '--upgrade pip'])
     # Install pipenv, if it is not already installed
-    call(['pip', 'install', 'pipenv'])
-    call(['pipenv', 'install', 'flask'])
-    call(['pipenv', 'install', 'flask-sqlalchemy'])
-    call(['pipenv', 'install', 'flask-wtf'])
-    call(['pipenv', 'install', 'flask-security'])
-    call(['pipenv', 'install', 'flask-alembic'])
+    pipenv = run(['pip', 'install', 'pipenv'])
+    pipenv.check_returncode()
+
+    flask = run(['pipenv', 'install', 'flask'])
+    flask.check_returncode()
+
+    sql_alchemy = run(['pipenv', 'install', 'flask-sqlalchemy'])
+    sql_alchemy.check_returncode()
+
+    flask_wtf = run(['pipenv', 'install', 'flask-wtf'])
+    flask_wtf.check_returncode()
+
+    flask_security = run(['pipenv', 'install', 'flask-security'])
+    flask_security.check_returncode()
+
+    alembic = run(['pipenv', 'install', 'flask-alembic'])
+    alembic.check_returncode()
+    
 
     # Prompt the user to specify what DBMS they want to use
-    db_pkg = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
-    if not db_pkg:
+    db_pkg_choice = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
+    if not db_pkg_choice:
         raise Exception('Must specify a db connector!')
-    call(['pipenv', 'install', db_pkg])
+
+    db_pkg = run(['pipenv', 'install', db_pkg_choice])
+    db_pkg.check_returncode()
 
 
 # Create project package directory
@@ -119,18 +131,23 @@ def create_tests():
 # Initialize git repo, add+commit files
 def git():
 
-    chdir('..')
-    call(['git', 'init'])
-    call(['git', 'add', '-A'])
-    call(['git', 'commit', '-m', '"initial commit"'])
+    git_init = run(['git', 'init'])
+    git_init.check_returncode()
+
+    git_add = run(['git', 'add', '-A'])
+    git_add.check_returncode()
+
+    git_commit = run(['git', 'commit', '-m', 'initial commit'])
+    git_commit.check_returncode()
 
     # Ask the user if they want to do a 'git remote' configuration
-    git_remote = input('Would you also like to do a git remote configuration(y/n)?: ')
+    git_remote_choice = input('Would you also like to do a git remote configuration(y/n)?: ')
 
-    if git_remote == "y":
+    if git_remote_choice == "y":
         remote_url = input('Enter the URL of your remote repository: ')
-        call(['git', 'remote', 'add', 'origin', remote_url])
-    elif git_remote == "n":
+        git_remote = run(['git', 'remote', 'add', 'origin', remote_url])
+        git_remote.check_returncode()
+    elif git_remote_choice == "n":
         pass
     else:
         input("Invalid value entered. Press enter to exit.")

@@ -17,7 +17,7 @@
  |__index.php
 """
 from os import mkdir, chdir
-from subprocess import call
+from subprocess import run
 
 
 # Create project's base directory
@@ -30,23 +30,30 @@ def root(proj_name):
     open('README.md', 'a')
     
 
-# Initialize a git repo, add and commit all files created
+# Initialize a git repo, add, and commit files
 def git():
 
-    call(['git', 'init'])
-    call(['git', 'add', '-A'])
-    call(['git', 'commit', '-m', 'Initial commit'])
+    git_init = run(['git', 'init'])
+    git_init.check_returncode()
+
+    git_add = run(['git', 'add', '-A'])
+    git_add.check_returncode()
+
+    git_commit = run(['git', 'commit', '-m', 'initial commit'])
+    git_commit.check_returncode()
 
     # Ask the user if they want to do a 'git remote' configuration
-    git_remote = input('Would you also like to do a git remote configuration(y/n)?: ')
+    git_remote_choice = input('Would you also like to do a git remote configuration(y/n)?: ')
 
-    if git_remote == "y":
+    if git_remote_choice == "y":
         remote_url = input('Enter the URL of your remote repository: ')
-        call(['git', 'remote', 'add', 'origin', remote_url])
-    elif git_remote == "n":
+        git_remote = run(['git', 'remote', 'add', 'origin', remote_url])
+        git_remote.check_returncode()
+    elif git_remote_choice == "n":
         pass
     else:
         input("Invalid value entered. Press enter to exit.")
+
 
 # Create the admin dir, with an index file
 def admin():

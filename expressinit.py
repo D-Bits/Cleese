@@ -4,7 +4,7 @@ Scaffold together a Node.js/Express Application.
 """
 from os import mkdir, chdir, environ
 from sys import stdout
-from subprocess import call
+from subprocess import run
 
 
 # Create project root dir
@@ -54,18 +54,18 @@ def tests():
 # Install packages from NPM
 def packages():
 
-    call(['npm', 'install', 'handlebars'])
-    call(['npm', 'install', 'express'])
-    call(['npm', 'install', 'mocha'])
-    call(['npm', 'init'])
+    run(['npm', 'install', 'handlebars'])
+    run(['npm', 'install', 'express'])
+    run(['npm', 'install', 'mocha'])
+    run(['npm', 'init'])
 
 
 # Initialize a git repo, commit & add all files created
 def git():
 
-    call(['git', 'init'])
-    call(['git', 'add', '-A'])
-    call(['git', 'commit', '-m', '"initial commit"'])
+    run(['git', 'init'])
+    run(['git', 'add', '-A'])
+    run(['git', 'commit', '-m', '"initial commit"'])
 
 
 def node_main():

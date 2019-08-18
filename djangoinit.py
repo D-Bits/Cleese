@@ -1,4 +1,4 @@
-from subprocess import call
+from subprocess import run
 from os import chdir, mkdir
 
 
@@ -10,26 +10,30 @@ def create_root():
     chdir(dir_name)
 
     """Create virtualenv w/ Pipenv, and install packages"""
-    # Make sure pip is up-to-date
-    call(['python', '-m', 'pip', 'install', '--upgrade pip'])
+    
     # Install pipenv, if it is not already installed
-    call(['pip', 'install', 'pipenv'])
-    call(['pipenv', 'install', 'django'])
+    pipenv = run(['pip', 'install', 'pipenv'])
+    pipenv.check_returncode()
+
+    django = run(['pipenv', 'install', 'django'])
+    django.check_returncode()
 
     # Ask the user if they also want to install DRF
-    drf = input('Would you also like to install Django REST Framework (y/n)?: ')
-    if drf == 'y':
-        call(['pipenv', 'install', 'djangorestframework'])
-    elif drf == 'n':
+    drf_choice = input('Would you also like to install Django REST Framework (y/n)?: ')
+    if drf_choice == 'y':
+        drf = run(['pipenv', 'install', 'djangorestframework'])
+        drf.check_returncode()
+    elif drf_choice == 'n':
         pass
     else:
         raise Exception('Invalid value entered.')
     
     # Prompt the user to specify what DBMS they want to use
-    db_pkg = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
-    if not db_pkg:
+    db_pkg_choice = input('Specify a database connector (ex:"psycopg2", "mysqlclient", etc): ')
+    if not db_pkg_choice:
         raise Exception('Must specify a db connector!')
-    call(['pipenv', 'install', db_pkg])
+    db_pkg = run(['pipenv', 'install', db_pkg_choice])
+    db_pkg.check_returncode()
 
     open('README.md', 'a')
 
@@ -50,29 +54,32 @@ def start_project():
     mkdir(proj_name)
     chdir(proj_name)
 
-    call(['django-admin', 'startproject', proj_name])
+    dj_admin = run(['django-admin', 'startproject', proj_name])
+    dj_admin.check_returncode()
 
     chdir(proj_name)
 
 
-"""
-Initialize empty git repo, then add + commit all project files
-"""
+# Initialize a git repo, add, and commit files
 def git():
 
-    chdir('..')
-    chdir('..')
-    call(['git', 'init'])
-    call(['git', 'add', '-A'])
-    call(['git', 'commit', '-m', 'initial commit'])
+    git_init = run(['git', 'init'])
+    git_init.check_returncode()
+
+    git_add = run(['git', 'add', '-A'])
+    git_add.check_returncode()
+
+    git_commit = run(['git', 'commit', '-m', 'initial commit'])
+    git_commit.check_returncode()
 
     # Ask the user if they want to do a 'git remote' configuration
-    git_remote = input('Would you also like to do a git remote configuration(y/n)?: ')
+    git_remote_choice = input('Would you also like to do a git remote configuration(y/n)?: ')
 
-    if git_remote == "y":
+    if git_remote_choice == "y":
         remote_url = input('Enter the URL of your remote repository: ')
-        call(['git', 'remote', 'add', 'origin', remote_url])
-    elif git_remote == "n":
+        git_remote = run(['git', 'remote', 'add', 'origin', remote_url])
+        git_remote.check_returncode()
+    elif git_remote_choice == "n":
         pass
     else:
         input("Invalid value entered. Press enter to exit.")
@@ -87,7 +94,8 @@ def create_app():
         if not app_name:
             raise Exception('App name cannot be null!')
 
-        call(['django-admin', 'startapp', app_name])
+        start_app = run(['django-admin', 'startapp', app_name])
+        start_app.check_returncode()
 
         # Change into the app dir, and create a "tests" dir for unit testing
         chdir(app_name)
@@ -98,7 +106,7 @@ def create_app():
         open('tests/test_views.py', 'a')
         open('tests/test_forms.py', 'a')
 
-        # Change back into app dir
+        # Go up to parent dir
         chdir('..')
 
     

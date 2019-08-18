@@ -1,6 +1,6 @@
 from os import chdir
 from sys import platform
-from subprocess import call
+from subprocess import run
 from dotnetinit import dotnet_main
 from djangoinit import django_main
 from flaskinit import flask_main
