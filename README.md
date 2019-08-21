@@ -1,6 +1,6 @@
 # Project-Initializers
 
-Scripts to initialize different kinds of projects, with specific configurations. See in individual files for further documentation. Executables made with PyInstaller.
+Cleese is a Python3-based program to scaffold various different types of projects, with specific configurations. See in individual files for further documentation. Executables made with PyInstaller.
 
 ## File Guide 
 
@@ -15,13 +15,13 @@ Scripts to initialize different kinds of projects, with specific configurations.
 
 ## Execution
 
-Run the *scaffold_main.exe* (Windows), or *scaffold_main* (Ubuntu/Linux) file(s) from the *dist* directory in a local directory of your choosing. Sorry, I do not have a Mac, and therefore, no executable for MacOS. However, others are welcome to contribute an OSX executable, if they like. Until then, Mac users can CD into the repo, and run *main.py*. 
+Run the *Cleese.exe* (Windows), or *Cleese* (Ubuntu/Linux) file(s) from the *dist* directory in a local directory of your choosing. Sorry, I do not have a Mac, and therefore, no executable for MacOS. However, others are welcome to contribute an OSX executable, if they like. Until then, Mac users can CD into the repo, and run *main.py*. 
 
 ## Execuatable Checksums:
 
-* SHA256: 5010C36BF233671B4CA93A92210BFBF65EA40B5602D12BE0ED01E70C1BC87090
+* SHA256: 7787C8C038A1FDDE94C5C3818BF8CCE9D2483F4201666985E1764554E7814962
  (**Windows**)
 
-* SHA256: 5D3F50B8E75ACD5F254AC1D4AF660F6210719C5D063244A8DBC99E5EFC278860
+* SHA256: 2A3A843D397894B0BF869BE90FB8F646404230755C42DBC14A3BA13DBD3220FB
  (**Linux**)
 
