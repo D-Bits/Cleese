@@ -20,20 +20,23 @@ def project_dir():
 # Create a virtualenv, using Pipenv
 def venv():
 
+    # Make sure Pip is up-to-date
+    upgrade_pip = run(['python', '-m', 'pip', 'install', '--upgrade', 'pip'])
+    upgrade_pip.check_returncode()
+
     # Install Pipenv, if its not already
     pipenv = run('pip install pipenv')
     pipenv.check_returncode()
 
-    install_pkg_choice = input('Would you like to install a package from Pip, and create a venv(y/n)?: ')
+    pkg_num = int(input('Enter a number for how many packages you would like to install: '))
 
-    if install_pkg_choice == 'y':
-        pkg_name = input('Enter a Pip package to install: ')
-        pkg = run(f'pipenv {pkg_name}')
-        pkg.check_returncode()
-    elif install_pkg_choice == 'n':
-        pass
+    if pkg_num == 0:
+        print('You choose not to install any packages. Abstaining from creating a virtual env.')
     else:
-        raise Exception('Invalid value entered.')
+        for cmd in range(pkg_num):
+
+            pkg_name = input('Enter the name of your Pip package: ')
+            run(['pipenv', 'install', pkg_name])
 
 
 # Create a main.py file, and a README
