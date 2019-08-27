@@ -1,6 +1,6 @@
 # Project-Initializers
 
-Cleese is a Python3-based program to scaffold various different types of projects, with specific configurations. See in individual files for further documentation. Executables made with PyInstaller.
+A Python3-based program to scaffold various different types of projects, with specific configurations. See in individual files for further documentation. Executables made with PyInstaller.
 
 ## File Guide 
 
@@ -15,13 +15,13 @@ Cleese is a Python3-based program to scaffold various different types of project
 
 ## Execution
 
-Run the *Cleese.exe* (Windows), or *Cleese* (Ubuntu/Linux) file(s) from the *dist* directory in a local directory of your choosing. Sorry, I do not have a Mac, and therefore, no executable for MacOS. However, others are welcome to contribute an OSX executable, if they like. Until then, Mac users can CD into the repo, and run *main.py*. 
+Run the *ProjectGenerator.exe* (Windows), or *ProjectGenerator* (Ubuntu/Linux) file(s) from the *dist* directory in a local directory of your choosing. Sorry, I do not have a Mac, and therefore, no executable for MacOS. However, others are welcome to contribute an OSX executable, if they like. Until then, Mac users can CD into the repo, and run *main.py*. 
 
 ## Execuatable Checksums:
 
-* SHA256: 7787C8C038A1FDDE94C5C3818BF8CCE9D2483F4201666985E1764554E7814962
+* SHA256: 988F939A9CD6BBE951A5746E5712073DAF37BA7564D5ED8C1BE403DD728F8D0B
  (**Windows**)
 
-* SHA256: 2A3A843D397894B0BF869BE90FB8F646404230755C42DBC14A3BA13DBD3220FB
+* SHA256: 5F3F17721699F75C1316649020B054602D32F6A6FB2F8EB9139719CA9BE7BDBA
  (**Linux**)
 
