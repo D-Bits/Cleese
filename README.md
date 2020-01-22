@@ -1,6 +1,6 @@
 # Project-Initializers
 
-ATTENTION: This project has been depreciated, and is no longer maintained. Please see the [Gingerbread](https://github.com/D-Bits/d-bits.github.io) repo for its replacement.
+ATTENTION: This project has been depreciated, and is no longer maintained. Please see the [Gingerbread](https://github.com/D-Bits/Gingerbread) repo for its replacement.
 
 A Python3-based program to scaffold various different types of projects, with specific configurations. See in individual files for further documentation. Executables made with PyInstaller.
 
